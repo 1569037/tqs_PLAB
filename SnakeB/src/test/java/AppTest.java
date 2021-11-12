@@ -24,12 +24,20 @@ public class AppTest{
         assertEquals(pos1.getY(),y);
         assertEquals(pos1.getMax(), max);
 
-        assertFalse("El valor x no es cor   recto", pos1.getX()< 0 || pos1.getX()>=pos1.getMax());
-        assertFalse("El valor y no es correcto", pos1.getY()< 0 || pos1.getY()>=pos1.getMax());
-        assertFalse("El valor de max no es correcto", pos1.getMax()!=10 || pos1.getMax()!=15 || pos1.getMax()!= 20);
+        TestCrearPos(pos1.getX(),pos1.getY(), pos1.getMax());
+        TestCrearPos(pos2.getX(),pos2.getY(), pos2.getMax());
+        TestCrearPos(pos3.getX(),pos3.getY(), pos3.getMax());
+        TestCrearPos(pos4.getX(),pos4.getY(), pos4.getMax());
+        TestCrearPos(pos5.getX(),pos5.getY(), pos5.getMax());
 
     }
-
+    @Test
+    public void TestCrearPos(int x, int y, int max)
+    {
+        assertFalse("El valor x no es correcto", x< 0 || x>= max);
+        assertFalse("El valor y no es correcto", y < 0 || y >= max);
+        assertFalse("El valor de max no es correcto", max>20 || max<10);
+    }
 
 
     @Test
