@@ -4,9 +4,10 @@ public class Serpiente {
     private Direccion dir;
     private int largo;
 
-    public void Serpiente()
+    public Serpiente()
     {
-
+        this.largo = 3;
+        this.dir = Direccion.Arriba;
     }
 
     public Direccion getDir() {

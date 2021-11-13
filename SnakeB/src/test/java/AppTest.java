@@ -50,7 +50,7 @@ public class AppTest{
         Serpiente serp = new Serpiente();
         Assertions.assertNotNull(serp);
         Assertions.assertEquals(serp.getLargo(), 3);
-        Assertions.assertEquals(serp.getDir(),0);
+        Assertions.assertEquals(serp.getDir(),Direccion.Arriba);
     }
 
 
