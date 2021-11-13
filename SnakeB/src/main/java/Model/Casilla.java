@@ -6,10 +6,12 @@ public class Casilla {
     private boolean comida;
     private int punt;
     private Serpiente serp;
-
     public Casilla(Posicion pos)
     {
-
+        this.pos = pos;
+        this.comida=false;
+        this.punt = 0;
+        this.serp = null;
     }
 
     public Posicion getPos() {

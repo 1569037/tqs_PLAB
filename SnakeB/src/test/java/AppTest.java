@@ -44,6 +44,14 @@ public class AppTest{
         Assertions.assertNull(cas.getSerp());
         Assertions.assertFalse(cas.isComida());
     }
+    @Test
+    public void TestCrearSerpiente()
+    {
+        Serpiente serp = new Serpiente();
+        Assertions.assertNotNull(serp);
+        Assertions.assertEquals(serp.getLargo(), 3);
+        Assertions.assertEquals(serp.getDir(),0);
+    }
 
 
 }
