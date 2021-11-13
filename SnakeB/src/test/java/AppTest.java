@@ -1,4 +1,4 @@
-import Model.Posicion;
+import Model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +37,12 @@ public class AppTest{
     @Test
     public void TestCrearCasilla()
     {
-        
+        Posicion pos = new Posicion(12,15,20);
+        Casilla cas = new Casilla(pos);
+        Assertions.assertEquals(pos,cas.getPos());
+        Assertions.assertEquals(cas.getPunt(), 0);
+        Assertions.assertNull(cas.getSerp());
+        Assertions.assertFalse(cas.isComida());
     }
 
 
