@@ -2,6 +2,8 @@ import Model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 
 public class AppTest{
 
@@ -52,6 +54,32 @@ public class AppTest{
         Assertions.assertEquals(serp.getLargo(), 3);
         Assertions.assertEquals(serp.getDir(),Direccion.Arriba);
     }
+    @Test
+    public void TestCrearTablero()
+    {
+        Tablero tFacil = new Tablero(0);
+        Tablero tIntermedio = new Tablero(1);
+        Tablero tDificil = new Tablero(2);
+        Tablero tImposible = new Tablero(3);
 
+        Assertions.assertTrue(crearTablero(tFacil));
+        Assertions.assertTrue(crearTablero(tIntermedio));
+        Assertions.assertTrue(crearTablero(tDificil));
+        Assertions.assertTrue(crearTablero(tImposible));
+
+    }
+
+    public boolean recorrerArray(Tablero t)
+    {
+        List<List<Casilla>> c = t.getCas();
+        return (t.getCas() != null && c.size() == t.getMax());
+
+
+    }
+    public boolean crearTablero(Tablero t )
+    {
+        int tam = ((t.getLvl()*(-5)) + 20);
+        return (tam==t.getMax() && t.getLvl()>=0 && t.getLvl()<4 && recorrerArray(t));
+    }
 
 }
