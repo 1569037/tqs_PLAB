@@ -35,10 +35,10 @@ public class AppTest{
     }
 
     @Test
-    public void TestCreacionComida()
+    public void TestCrearCasilla()
     {
-        //aqui tenemos que saber el lvl porque si no no tiene sentido
-        //segun el lvl mide un tamaño el tablero u otro
+        
     }
+
 
 }
