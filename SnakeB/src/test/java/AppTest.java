@@ -16,19 +16,22 @@ public class AppTest{
         Posicion pos5 = new Posicion(31, 18, -1); //maxInvalid - xFora - yLim
 
         Assertions.assertNotNull(pos1);
-
+        Assertions.assertNotNull(pos2);
+        Assertions.assertNotNull(pos3);
+        Assertions.assertNotNull(pos4);
+        Assertions.assertNotNull(pos5);
 
         Assertions.assertTrue(TestCrearPos(pos1));
         Assertions.assertTrue(TestCrearPos(pos2));
-        Assertions.assertFalse(TestCrearPos(pos3));
-        Assertions.assertFalse(TestCrearPos(pos4));
-        Assertions.assertFalse(TestCrearPos(pos5));
+        Assertions.assertTrue(TestCrearPos(pos3));
+        Assertions.assertTrue(TestCrearPos(pos4));
+        Assertions.assertTrue(TestCrearPos(pos5));
     }
 
 
     public boolean TestCrearPos(Posicion p)
     {
-        return p.getX() < 0 || p.getX() >= p.getMax() || p.getY() < 0 || p.getY() >= p.getMax() || p.getMax() > 20 || p.getMax() < 10;
+        return p.getX() >= 0 && p.getX() < p.getMax() && p.getY() >= 0 && p.getY() < p.getMax() && p.getMax() <=20 && p.getMax() >= 10;
     }
 
     @Test
