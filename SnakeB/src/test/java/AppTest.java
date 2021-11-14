@@ -1,4 +1,5 @@
 import Model.*;
+import Controller.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,6 @@ public class AppTest{
         Assertions.assertTrue(TestCrearPos(pos4));
         Assertions.assertTrue(TestCrearPos(pos5));
     }
-
     @Test
     public void TestCrearCasilla()
     {
@@ -75,9 +75,6 @@ public class AppTest{
        Assertions.assertEquals(r.getRecord1(), 5);
        Assertions.assertEquals(r.getRecord2(), 4);
        Assertions.assertEquals(r.getRecord3(), 3);
-
-
-
    }
 
    @Test
@@ -93,6 +90,19 @@ public class AppTest{
         Assertions.assertTrue(CrearJuego(jug2));
         Assertions.assertTrue(CrearJuego(jug3));
    }
+   @Test
+   public void TestCrearController()
+   {
+       Controller con = new Controller();
+       Assertions.assertNotNull(con.getGame());
+       Assertions.assertNotNull(con.getCas());
+       Assertions.assertNotNull(con.getDir());
+       Assertions.assertNotNull(con.getRec());
+       Assertions.assertNotNull(con.getSer());
+       Assertions.assertNotNull(con.getPos());
+       Assertions.assertNotNull(con.getTab());
+   }
+
 
    public boolean CrearJuego(Juego j)
    {
@@ -114,5 +124,4 @@ public class AppTest{
     {
         return p.getX() >= 0 && p.getX() < p.getMax() && p.getY() >= 0 && p.getY() < p.getMax() && p.getMax() <=20 && p.getMax() >= 10;
     }
-
 }
