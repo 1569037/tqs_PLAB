@@ -4,7 +4,6 @@ import Vista.VTablero;
 
 public class Controller {
     private Juego game;
-    private Casilla cas;
     private Direccion dir;
     private Posicion pos;
     private Record rec;
@@ -12,8 +11,14 @@ public class Controller {
     private Tablero tab;
     private VTablero window;
 
-    public Controller(){
-
+    public Controller(int lvl){
+        if (lvl<0 || lvl>2 )
+            lvl = 0;
+        game = new Juego(lvl);
+        tab = game.getTab();
+        ser = game.getSerp();
+        rec = Record.getInstance();
+        window = new VTablero(); //esto tendremos que hacerlo
     }
 
     public Juego getGame() {
@@ -24,14 +29,6 @@ public class Controller {
         this.game = game;
     }
 
-    public Casilla getCas() {
-        return cas;
-    }
-
-    public void setCas(Casilla cas) {
-        this.cas = cas;
-    }
-
     public Direccion getDir() {
         return dir;
     }
@@ -39,7 +36,6 @@ public class Controller {
     public void setDir(Direccion dir) {
         this.dir = dir;
     }
-
     public Posicion getPos() {
         return pos;
     }

@@ -1,13 +1,23 @@
 package Model;
 
-public class Record {
+public class Record{
     private int record1;
     private int record2;
     private int record3;
+    private static Record miRecord;
 
-    public Record()
+    public static Record getInstance() {
+
+        if(miRecord == null)
+            miRecord = new Record();
+        return miRecord;
+    }
+
+    private Record()
     {
-
+        record1 = 0;
+        record2 = 0;
+        record3 = 0;
     }
 
     public int getRecord1() {

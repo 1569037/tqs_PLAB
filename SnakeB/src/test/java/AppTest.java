@@ -62,7 +62,7 @@ public class AppTest{
    @Test
    public void TestCrearRecord()
    {
-       Record r = new Record();
+       Record r = Record.getInstance();
        Assertions.assertNotNull(r);
        Assertions.assertEquals(r.getRecord1(),0);
        Assertions.assertEquals(r.getRecord2(), 0);
@@ -93,14 +93,14 @@ public class AppTest{
    @Test
    public void TestCrearController()
    {
-       Controller con = new Controller();
+       Controller con = new Controller(0);
        Assertions.assertNotNull(con.getGame());
-       Assertions.assertNotNull(con.getCas());
        Assertions.assertNotNull(con.getDir());
        Assertions.assertNotNull(con.getRec());
        Assertions.assertNotNull(con.getSer());
        Assertions.assertNotNull(con.getPos());
        Assertions.assertNotNull(con.getTab());
+       Assertions.assertNotNull(con.getWindow());
    }
 
 

@@ -3,6 +3,7 @@ package Model;
 public class Serpiente {
     private Direccion dir;
     private int largo;
+    private Casilla cas;
 
     public Serpiente()
     {
