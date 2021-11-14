@@ -69,17 +69,34 @@ public class AppTest{
 
     }
 
+   @Test
+   public void TestCrearJuego()
+   {
+        Juego jug0 = new Juego(0);
+        Juego jug1 = new Juego(1);
+        Juego jug2 = new Juego(2);
+        Juego jug3 = new Juego(3);
+
+
+
+   }
+
+   public boolean CrearJuego(Juego j)
+   {
+       return (j.getPunt()==0 && j.getSerp()!=null && j.getTab() != null && j.getLvl()>=0 && j.getLvl()<3);
+   }
+
     public boolean recorrerArray(Tablero t)
     {
-        List<List<Casilla>> c = t.getCas();
-        return (t.getCas() != null && c.size() == t.getMax());
+         Casilla [][] c = t.getCas();
+        return (t.getCas() != null && c[0].length == t.getMax() && c.length==t.getMax());
 
 
     }
     public boolean crearTablero(Tablero t )
     {
         int tam = ((t.getLvl()*(-5)) + 20);
-        return (tam==t.getMax() && t.getLvl()>=0 && t.getLvl()<4 && recorrerArray(t));
+        return (tam==t.getMax() && t.getLvl()>=0 && t.getLvl()<3 && recorrerArray(t));
     }
 
 }

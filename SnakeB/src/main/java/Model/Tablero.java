@@ -3,12 +3,25 @@ import java.util.*;
 public class Tablero {
 
     private int max; //medida maxima del tablero
-    private List<List<Casilla>> cas;
+    private Casilla [][] cas;
     private int lvl;
 
     public Tablero(int lvl)
     {
-
+        if(lvl>=0 && lvl <4)
+            this.lvl = lvl;
+        else
+            this.lvl = 0;
+        this.max = ((this.lvl*(-5)) +20);
+        cas = new Casilla[max][max];
+        for(int i=0; i<max; i++)
+        {
+            for(int j=0; j<max; j++)
+            {
+                Posicion pos = new Posicion(i,j,max);
+                cas[i][j] = new Casilla(pos);
+            }
+        }
     }
 
     public int getMax() {
@@ -19,11 +32,11 @@ public class Tablero {
         this.max = max;
     }
 
-    public List<List<Casilla>> getCas() {
+    public Casilla[][] getCas() {
         return cas;
     }
 
-    public void setCas(List<List<Casilla>> cas) {
+    public void setCas(Casilla[][] cas) {
         this.cas = cas;
     }
 
