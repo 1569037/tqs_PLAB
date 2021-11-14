@@ -8,7 +8,7 @@ public class Tablero {
 
     public Tablero(int lvl)
     {
-        if(lvl>=0 && lvl <4)
+        if(lvl>=0 && lvl <3)
             this.lvl = lvl;
         else
             this.lvl = 0;

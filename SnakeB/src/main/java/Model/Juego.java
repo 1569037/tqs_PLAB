@@ -8,7 +8,13 @@ public class Juego {
 
     public Juego(int lvl)
     {
-
+        if(lvl >0 && lvl < 3)
+            this.lvl = lvl;
+        else
+            this.lvl = 0;
+        this.punt = 0;
+        this.serp = new Serpiente();
+        this.tab = new Tablero(lvl);
     }
 
 
