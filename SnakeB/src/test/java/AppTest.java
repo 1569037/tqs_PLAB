@@ -34,18 +34,41 @@ public class AppTest{
         Posicion pos = new Posicion(12,15,20);
         Casilla cas = new Casilla(pos);
         Assertions.assertEquals(pos,cas.getPos());
-        Assertions.assertEquals(cas.getPunt(), 0);
         Assertions.assertNull(cas.getSerp());
         Assertions.assertFalse(cas.isComida());
     }
     @Test
     public void TestCrearSerpiente()
     {
-        Serpiente serp = new Serpiente();
+        Serpiente serp = new Serpiente(1);
         Assertions.assertNotNull(serp);
+        Assertions.assertEquals(serp.getDir(), Direccion.Izq);
+        Assertions.assertNotNull(serp.getCuerpo());
+        Assertions.assertTrue(serp.getCuerpo().contains(serp.getCabeza()));
+        Assertions.assertTrue(serp.getCuerpo().contains(serp.getCola()));
+        Assertions.assertEquals(serp.getMax(),(1*(-5)+20));
         Assertions.assertEquals(serp.getLargo(), 3);
-        Assertions.assertEquals(serp.getDir(),Direccion.Arriba);
     }
+    @Test
+    public void TestAddColaSerp()
+    {
+        Casilla c = new Casilla(new Posicion(13,13,20));
+        Serpiente s = new Serpiente(0);
+        s.addCola(c);
+        Assertions.assertEquals(c,s.getCola());
+    }
+    @Test
+    public void TestHasCasillaSerp()
+    {
+        Casilla c = new Casilla(new Posicion(13,13,20));
+        Casilla casNo = new Casilla(new Posicion(0,0,20));
+        Serpiente s = new Serpiente(0);
+        s.addCola(c);
+        Assertions.assertTrue(s.hasCasilla(c));
+        Assertions.assertFalse(s.hasCasilla(casNo));
+    }
+
+
     @Test
     public void TestCrearTablero()
     {
@@ -91,6 +114,32 @@ public class AppTest{
         Assertions.assertTrue(CrearJuego(jug3));
    }
    @Test
+   public void TestCrearComida()
+   {
+       MockRandom r = new MockRandom(0);
+       Juego j = new Juego(0);
+       j.setRandom(r);
+       j.crearComida();
+       Assertions.assertEquals(j.getComida().getPos().getX(),13);
+       Assertions.assertEquals(j.getComida().getPos().getX(),13);
+       r.setId(1);
+       j.crearComida();
+       Assertions.assertEquals(j.getComida().getPos().getX(),10);
+       Assertions.assertEquals(j.getComida().getPos().getX(),10);
+   }
+
+
+   @Test
+   public void TestNextRound()
+   {
+       Juego j = new Juego(0);
+       Assertions.assertTrue(j.nextRound());
+   }
+
+
+
+   /**
+   @Test
    public void TestCrearController()
    {
        Controller con = new Controller(0);
@@ -101,12 +150,24 @@ public class AppTest{
        Assertions.assertNotNull(con.getPos());
        Assertions.assertNotNull(con.getTab());
        Assertions.assertNotNull(con.getWindow());
+       Assertions.assertTrue(con.isRunning());
+       Assertions.assertEquals((con.getTab().getMax()/2)-1, con.getPos().getX());
+       Assertions.assertEquals((con.getTab().getMax()/2)-1, con.getPos().getY());
    }
 
+*/
+/**
+   @Test
+   public void TestMoverSerpiente()
+   {
+       Controller c = new Controller(0);
+       c.moverSerpiente();
+   }
+**/
 
    public boolean CrearJuego(Juego j)
    {
-       return (j.getPunt()==0 && j.getSerp()!=null && j.getTab() != null && j.getLvl()>=0 && j.getLvl()<3);
+       return (j.getComida()==null && j.getPunt()==0 && j.getSerp()!=null && j.getTab() != null && j.getLvl()>=0 && j.getLvl()<3);
    }
 
     public boolean recorrerArray(Tablero t)

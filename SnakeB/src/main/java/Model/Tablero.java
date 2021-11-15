@@ -22,14 +22,12 @@ public class Tablero {
                 cas[i][j] = new Casilla(pos);
             }
         }
+        Serpiente serp = new Serpiente(this.lvl);
+        cas[max/2-1][max/2-1].setSerp(serp);
     }
 
     public int getMax() {
         return max;
-    }
-
-    public void setMax(int max) {
-        this.max = max;
     }
 
     public Casilla[][] getCas() {
@@ -42,9 +40,5 @@ public class Tablero {
 
     public int getLvl() {
         return lvl;
-    }
-
-    public void setLvl(int lvl) {
-        this.lvl = lvl;
     }
 }
